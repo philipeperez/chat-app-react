@@ -8,7 +8,7 @@ const { Option } = Mentions;
 type MessageInputProps = {
   onMessageSubmit: (message: string) => void;
 };
-// 
+
 export const MessageInput: FC<MessageInputProps> = React.memo(
   ({ onMessageSubmit }) => {
     const isComponentMounted = useRef(true);
