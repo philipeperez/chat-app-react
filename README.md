@@ -1,6 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[https://react-chatty-app.herokuapp.com/](Running example)
+## Running Example
+
+[https://react-chatty-app.herokuapp.com/](https://react-chatty-app.herokuapp.com/)
 
 ## Available Scripts
 
