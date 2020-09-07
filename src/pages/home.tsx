@@ -29,6 +29,14 @@ export const Home: FC = () => {
   };
 
   useEffect(() => {
+    form.getFieldInstance("username").focus();
+    if (process.env.NODE_ENV === "development") {
+      form.setFieldsValue({ username: "Philipe" });
+      form.submit();
+    }
+  }, [form]);
+
+  useEffect(() => {
     if (!connected) return;
     history.push(ROUTES.CHAT);
   }, [connected, history]);
@@ -67,7 +75,7 @@ export const Home: FC = () => {
                     { required: true, message: "Please input your username!" },
                   ]}
                 >
-                  <Input placeholder="Username" />
+                  <Input placeholder="Username" disabled={connecting} />
                 </Form.Item>
 
                 <Form.Item>

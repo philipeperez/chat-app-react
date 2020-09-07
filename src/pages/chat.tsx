@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useContext } from "react";
+import React, { FC, useEffect, useContext, useRef, useState } from "react";
 import { Layout, Button } from "antd";
 import { LogoutOutlined } from "@ant-design/icons";
 import { OnlineUserList, ChatBox, MessageInput } from "../components";
@@ -23,6 +23,8 @@ export const Chat: FC = () => {
     el!.scrollTop = el!.scrollHeight;
   }, [messages]);
 
+  const contentRef = useRef(null);
+
   return (
     <Layout hasSider className="App" style={{ minHeight: "100vh" }}>
       <Sider breakpoint="sm" theme="light" collapsedWidth="0">
@@ -39,6 +41,7 @@ export const Chat: FC = () => {
 
       <Layout>
         <Content
+          ref={contentRef}
           style={{
             backgroundColor: "lightgray",
             overflowY: "auto",
@@ -49,7 +52,9 @@ export const Chat: FC = () => {
         </Content>
 
         <Footer>
-          <MessageInput onMessageSubmit={sendMessage} />
+          <MessageInput
+            onMessageSubmit={sendMessage}
+          />
         </Footer>
       </Layout>
     </Layout>
